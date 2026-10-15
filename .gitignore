@@ -1,0 +1,70 @@
+# rose.garter.black · SOURCE OF TRUTH REPO ────────────────────────────────────
+# This repo holds SOURCE ONLY. For this single-page static site the committed
+# index.html IS the publishable tree; media it references lives in R2 / object
+# storage and is deliberately absent here.
+# ───────────────────────────────────────────────────────────────────────────────
+
+# Build output / deploy staging. Never hand-edit, never commit.
+dist/
+output/
+public/
+
+# Media, never in git (SOURCE-OF-TRUTH-PLAN.md §1). Extension-matched so a
+# drag-in of assets/ or samples/ cannot commit them by accident.
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.avif
+*.bmp
+*.tiff
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.mkv
+*.avi
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*.svg
+*.ico
+*.woff
+*.woff2
+*.ttf
+*.otf
+*.eot
+
+# assets/ and samples/ are excluded wholesale as well, since that is how this
+# project is laid out locally. Belt and braces with the extension rules above.
+assets/
+samples/
+
+# Downloadable documents are media too: authored elsewhere, served from R2.
+*.pdf
+
+# Runtime + local dev state
+.wrangler/
+__pycache__/
+*.pyc
+node_modules/
+
+# Secrets. Local dev values live in .dev.vars only; production values live in
+# Cloudflare as `wrangler pages secret`.
+.env
+.env.*
+.dev.vars
+
+# Screenshots and generated evidence
+shots/
+
+# Roster / customer data never enters git: real names, ages, IDs, contacts.
+*roster*.json
+*ladies*.json
+*roster*.csv
+*ladies*.csv
+data/**/roster*.json
+data/**/ladies*.csv
